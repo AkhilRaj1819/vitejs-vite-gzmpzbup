@@ -1,11 +1,13 @@
+import React from 'react';
 import { useState } from 'react';
+import BookCard from './components/bookcard';
+import './App.css'
 
 function App() {
   const books = [
     {
       id: 1,
-      image:
-        'https://tse2.mm.bing.net/th?id=OIP.IIIPIPZYMBOJgxFfWGRtBAHaHa&rs=1&pid=ImgDetMain',
+      image: 'https://tse2.mm.bing.net/th?id=OIP.IIIPIPZYMBOJgxFfWGRtBAHaHa&rs=1&pid=ImgDetMain',
       name: 'The Great Adventure',
       genre: 'Fiction',
       author: 'Jane Doe',
@@ -26,15 +28,29 @@ function App() {
     },
     {
       id: 4,
-      image:
-        'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700317474i/202368563.jpg',
+      image: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1700317474i/202368563.jpg',
       name: 'Culinary Delights',
       genre: 'Cooking',
       author: 'Michael Brown',
     },
   ];
 
-  return <>{/* write code to display all the books using */}</>;
+  return (
+    <>
+
+    <h1 style={{color:'white'}}>Books</h1>
+    <div className='book'>
+      {books.map((book) => (
+        <BookCard key={book.id}
+        image={book.image}
+        name={book.name}
+        genre={book.genre}
+        author={book.author}
+        />
+      ))}
+      </div>
+    </>
+  );
 }
 
 export default App;
